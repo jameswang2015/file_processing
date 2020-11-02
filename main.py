@@ -104,7 +104,6 @@ def _add_song_to_playlist(add_song_to_list: AddSongToPlaylist, mixtape: Dict[Any
     print(f"playlist_id {add_song_to_list.playlist_id} does not exist")
 
 
-
 def main():
     try:
         mixtape_json = sys.argv[1]
