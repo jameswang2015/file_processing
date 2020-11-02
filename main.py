@@ -33,6 +33,11 @@ class AddSongToPlaylist(BaseModel):
 
 
 def _get_playlist_id(mixtape: Dict[Any, Any]) -> str:
+    """
+    the new playlist_id is generated as max_existing_playlist_id + 1
+    :param mixtape: input data
+    :return: playlist_id as string
+    """
     if not mixtape["playlists"]:
         return "1"
     return str(max([int(pl["id"]) for pl in mixtape["playlists"]]) + 1)
