@@ -1,0 +1,3 @@
+[{"change_type": "add_new_playlist",  "change_detail": {"user_id":  "4", "songs":  ["1", "10"]}},
+ {"change_type": "remove_playlist", "change_detail":  {"playlist_id":  "1"}},
+ {"change_type": "add_song_to_playlist", "change_detail":  {"song_id":  "12", "playlist_id":  "2"}}]
