@@ -1,3 +1,4 @@
+import argparse
 import sys
 import json
 from pydantic import BaseModel, conlist
@@ -109,17 +110,12 @@ def _add_song_to_playlist(add_song_to_list: AddSongToPlaylist, mixtape: Dict[Any
     print(f"playlist_id {add_song_to_list.playlist_id} does not exist")
 
 
-def main():
+def main(args):
     try:
-        mixtape_json = sys.argv[1]
-        changes_json = sys.argv[2]
-        with open(mixtape_json) as mixtape_file:
+        with open(args.input_json) as mixtape_file:
             mixtape = json.load(mixtape_file)
-        with open(changes_json) as changes_file:
+        with open(args.changes_json) as changes_file:
             changes = json.load(changes_file)
-    except IndexError as e:
-        print("Please provide mixtape.json as first argument and change.json as second argument")
-        sys.exit(1)
     except FileNotFoundError as e:
         print(f"No such file or directory: {e.filename}")
         sys.exit(1)
@@ -145,4 +141,10 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description="File_processing arguments")
+    parser.add_argument('-i', dest="input_json", default="mixtape.json",
+                        help="Input json file mixtape.json")
+    parser.add_argument('-c', dest="changes_json", default="changes.json",
+                        help="Changes.json file")
+
+    main(parser.parse_args())

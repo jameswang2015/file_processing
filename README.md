@@ -20,7 +20,7 @@ cd file_processing/
 python -m venv .venv
 source ./.venv/bin/activate
 pip install pydantic
-python main.py mixtape.json changes.json
+python main.py
 ```
 
 # Rules for each functions
