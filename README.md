@@ -12,12 +12,20 @@ Output:
 
 # How to run it
 
-In project root directory, run:  
-`python main.py mixtape.json changes.json`
+Pre-requirement: Python 3.x and pip 20.x
+
+```buildoutcfg
+git clone https://github.com/jameswang2015/file_processing.git
+cd file_processing/
+python -m venv .venv
+source ./.venv/bin/activate
+pip install pydantic
+python main.py mixtape.json changes.json
+```
 
 # Rules for each functions
 
-Some rules are designed as follows
+Some rules are designed as followings.
 
 - `add_new_playlist`:
     - if user_id doesn't exist in users, the new playlist won't be created
@@ -37,7 +45,9 @@ Some rules are designed as follows
 - vary large maxtape.json input file  
   If the json input file is too large to fit in memory, we can't use `json.load()` to load it in whole. Rather, we need
   some streaming tool like `ijson` to read json as streaming. 
-  We would also consider to put this into database and create three tables for `users`, `songs` and `playlists`, respectively 
+  
+  We could also consider to put this into database and create three tables for `users`, `songs` and `playlists`, 
+  respectively. Then we can leverage database sql and primary/foreign key constraints to handle this. 
   
 - vary large changes.json file  
   we can read this changes.json as streaming, each iteration pass one change, and then handle this change one by one.
