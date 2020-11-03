@@ -25,7 +25,8 @@ python main.py #  or python main.py -i mixtape.json -c changes.json
 
 # Rules for each functions
 
-Some rules are designed as followings.
+Some rules are designed as followings. Note that some of these rules are defined by author per author's best knowledge
+of the processing logic, they can be adjusted per request.
 
 - `add_new_playlist`:
     - if user_id doesn't exist in users, the new playlist won't be created
