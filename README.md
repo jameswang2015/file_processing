@@ -52,4 +52,4 @@ Some rules are designed as followings.
   Or, we can convert this to three hive tables and leverage hql to handle them.
   
 - vary large changes.json file  
-  we can read this changes.json as streaming, each iteration pass in one change, and then handle this change one by one.
+  we can use generator to read this changes.json as streaming, yield one change each time, and handle changes one by one.
